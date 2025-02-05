@@ -7,6 +7,89 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Document</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/tgs-player.js"></script>
+    <link rel="stylesheet" href="normal.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
-  <body></body>
+  <body
+    x-data="{gift:{name:'tgStarGift', price:55}}"
+  >
+    <div>
+      <header
+        class="shadowedContainer"
+        style="padding-bottom: 4vw"
+      >
+        <h1>Buy gift</h1>
+      </header>
+
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        "
+      >
+        <tgs-player
+          autoplay
+          loop
+          mode="normal"
+          src="tgs/ring/SignetRingSkins_AgADvGIAAtiHYUs.tgs"
+          style="
+            width: 30vw;
+            height: 30vw;
+            margin: 5vh 0;
+          "
+        >
+        </tgs-player>
+      </div>
+      <section class="shadowedContainer">
+        <span
+          x-text="`You are going to buy ${gift.name} for ${gift.price} gtgttg`"
+        ></span>
+      </section>
+    </div>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        justify-content: flex-start;
+      }
+
+      .shadowedContainer {
+        background: rgb(255, 255, 255);
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        justify-content: center;
+
+        padding: 3vw 0;
+        box-shadow: 0 5vw 17vw rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 5vw 5vw;
+      }
+
+      h1 {
+        font-size: 10vw;
+        font-weight: 550;
+        color: rgb(32, 32, 32);
+        text-shadow: 0 0 8vw white;
+      }
+
+      section {
+        font-size: 6vw;
+        background: gray;
+      }
+      section span {
+        width: 90%;
+      }
+    </style>
+  </body>
 </html>
