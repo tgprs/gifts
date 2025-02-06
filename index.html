@@ -14,9 +14,7 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
   </head>
-  <body
-    x-data="{gift:{name:'tgStarGift', price:55}}"
-  >
+  <body x-data="giftData()">
     <div>
       <header
         class="shadowedContainer"
@@ -43,15 +41,31 @@
             height: 30vw;
             margin: 5vh 0;
           "
-        >
-        </tgs-player>
+        ></tgs-player>
       </div>
+
       <section class="shadowedContainer">
         <span
           x-text="`You are going to buy ${gift.name} for ${gift.price} gtgttg`"
         ></span>
       </section>
     </div>
+
+    <script>
+      function getQueryParams() {
+        const params = new URLSearchParams(
+          window.location.search
+        )
+        return {
+          name: params.get('name') || 'подарок',
+          price: params.get('price') || 55,
+        }
+      }
+
+      function giftData() {
+        return { gift: getQueryParams() }
+      }
+    </script>
 
     <style>
       body {
@@ -70,7 +84,6 @@
         align-items: center;
         justify-items: center;
         justify-content: center;
-
         padding: 3vw 0;
         box-shadow: 0 5vw 17vw rgba(0, 0, 0, 0.2);
         border-radius: 0 0 5vw 5vw;
